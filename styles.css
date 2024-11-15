@@ -3,7 +3,15 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 20px;
-  background-color: white;
+}
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .sidebox {
@@ -45,9 +53,36 @@ header {
   color: black;
   margin: 0 auto; /* Center horizontally */
   font-size: 4rem;
+  margin-top: 5px;
   white-space: nowrap; /* Prevent text from wrapping */
 }
+.nama h2 {
+  font-size: 2.5rem;
+  margin-top: 30.1px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
+.nama h2 {
+  color: transparent;
+  -webkit-text-stroke: 1.5px black;
+  position: relative;
+}
+
+.nama h2::before {
+  content: "Pelajar";
+  position: absolute;
+  width: 0%;
+  height: 90%;
+  overflow: hidden;
+  color: black;
+  border-right: 5px solid black;
+  transition: 1s ease-in-out;
+}
+
+.nama h2:hover::before {
+  width: 100%;
+  filter: drop-shadow(0 0 25px black);
+}
 .motto {
   text-align: center;
   padding: 20px;
@@ -90,33 +125,6 @@ header {
   }
 }
 
-.nama h2 {
-  font-size: 2.5rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.nama h2 {
-  color: transparent;
-  -webkit-text-stroke: 1.5px black;
-  position: relative;
-}
-
-.nama h2::before {
-  content: "Pelajar";
-  position: absolute;
-  width: 0%;
-  height: 90%;
-  overflow: hidden;
-  color: black;
-  border-right: 5px solid black;
-  transition: 1s ease-in-out;
-}
-
-.nama h2:hover::before {
-  width: 100%;
-  filter: drop-shadow(0 0 25px black);
-}
-
 /* Animasi untuk efek zoom pada foto profil */
 @keyframes zoomIn {
   0% {
@@ -149,7 +157,7 @@ header {
 
 .about-me {
   display: flex;
-  align-items: stretch; /* Memastikan isi stretch secara vertikal */
+  text-align: justify; /* Memastikan isi stretch secara vertikal */
   margin: 20px 0;
   background: #f4f4f4;
   padding: 30px; /* Memperbesar padding agar lebih proporsional */
@@ -187,8 +195,9 @@ header {
 
 .about-text h2 {
   color: black;
-  margin: 0 0 20px 0; /* Memberi jarak bawah pada heading */
-  font-size: 2rem; /* Memperbesar ukuran heading */
+  margin: 0 0 5px 0; /* Memberi jarak bawah pada heading */
+  font-size: 2rem;
+  text-align: center;
 }
 
 .about-text p {
@@ -201,7 +210,7 @@ header {
   font-size: 1.6rem; /* Memperbesar teks bold (nama, email, dsb) */
 }
 
-.info{
+.info {
   text-align: left;
 }
 
@@ -232,7 +241,7 @@ header {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.education-box h2{
+.education-box h2 {
   font-size: 2rem;
 }
 
@@ -276,8 +285,6 @@ header {
   flex-direction: column; /* Stack text vertically */
 }
 
-
-
 .container {
   background: #f4f4f4; /* Light background for contrast */
   padding: 40px;
@@ -288,8 +295,6 @@ header {
   width: 92vw;
   font-size: 22px;
 }
-
-
 
 .panel {
   background-size: cover;
@@ -324,111 +329,288 @@ header {
   opacity: 1;
   transition: opacity 0.3s ease-in 0.4s;
 }
-
-@media (max-width: 480px) {
-
-.profil {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  animation: zoomIn 0.8s forwards;
-  opacity: 0;
-  transition: transform 0.3s ease; /* Smooth transition for movement */
-  margin-bottom: 0px;
-  margin-left: 250px;
-}
-
-.profil:hover {
-  transform: translateY(-5px) scale(1.05); /* Move up slightly and scale */
-}
-.nama {
-  /* Add this if you want to keep the layout flexible */
-  display: flex;
-  justify-content: center; /* Center children */
-}
-.nama h1 {
-  color: black;
-  margin-top: 25.5px; /* Center horizontally */
-  font-size: 3rem;
-  white-space: nowrap; /* Prevent text from wrapping */
-  margin-left: 300px;
-}
-.nama h2 {
-  font-size: 2.5rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.nama h2::before {
-  content: "Pelajar";
-  position: absolute;
-  width: 0%;
-  height: 80%;
-  overflow: hidden;
-  color: black;
-  border-right: 5px solid black;
-  transition: 1s ease-in-out;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center; /* Center the icons */
-  margin-bottom: 10px; /* Space below the icons */
-  margin-left: 310px;
-}
-
-.social-icons a {
-  font-size: 4rem; /* Increase the size of the icons */
-  color: #333; /* Match the text color */
-  text-decoration: none; /* Remove underline */
-  margin: 0 15px; /* Space between icons */
-  transition: transform 0.3s ease; /* Smooth transition for hover effect */
-  
-}
-
-.social-icons a:hover {
-  transform: scale(1.2); /* Slightly enlarge on hover */
-}
-
-.motto h1 {
-  color: black;
-  margin: -20px;
-  font-size: 3rem;
-  padding-left: 19rem;
-}
-
-.motto h2 {
-  font-size: 1.4rem;
-  padding-left: 19rem;
-  font-style: italic;
-  color: #555;
-  margin-top: 25px;
-  white-space: nowrap; /* Mencegah teks memecah baris */
-  overflow: hidden; /* Menyembunyikan teks yang belum terlihat */
-  border-right: 2px solid black; /* Garis kursor */
-  display: inline-block; /* Mencegah geseran teks */
-  animation: typing 5s steps(60, end) 1, blink-caret 0.75s step-end infinite; /* Typing hanya berjalan 1 kali */
-}
-
-  .container {
-    width: 100vw;
-  }
-
-  .panel:nth-of-type(4),
-  .panel:nth-of-type(5) {
-    display: none;
-  }
-}
-
-.project-link {
-  display: inline-block;
-  margin-top: 10px;
+button {
+  position: relative;
   padding: 10px 20px;
-  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-  color: #333; /* Text color */
-  text-decoration: none; /* Remove underline */
-  border-radius: 5px; /* Rounded corners */
-  transition: background-color 0.3s ease;
+  border-radius: 20px;
+  border: 1px solid rgb(61, 106, 255);
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
-.project-link:hover {
-  background-color: rgba(255, 255, 255, 1); /* Solid background on hover */
+button:hover {
+  background: rgb(61, 106, 255);
+  box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+button:hover::before {
+  -webkit-animation: sh02 0.5s 0s linear;
+  -moz-animation: sh02 0.5s 0s linear;
+  animation: sh02 0.5s 0s linear;
+}
+
+button::before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 50px 30px #fff;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+@keyframes sh02 {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+button:active {
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: box-shadow 0.2s ease-in;
+  -moz-transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
+}
+
+@media screen and (max-width: 450px) and (max-height: 932px) {
+  .profil {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    animation: zoomIn 0.8s forwards;
+    opacity: 0;
+    transition: transform 0.3s ease; /* Smooth transition for movement */
+    margin-bottom: 0px;
+    border: 1px solid black;
+    margin-top: 35px;
+  }
+
+  .profil:hover {
+    transform: translateY(-5px) scale(1.05); /* Move up slightly and scale */
+  }
+  .nama {
+    /* Add this if you want to keep the layout flexible */
+    display: flex;
+    justify-content: center; /* Center children */
+  }
+  .nama h1 {
+    color: black;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    margin-left: 100px;
+  }
+  .nama h2 {
+    font-size: 1rem;
+    margin-top: 32px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   padding-right: 95px;
+  }
+  .nama h2::before {
+    content: "Pelajar";
+    position: absolute;
+    width: 0%;
+    height: 90%;
+    overflow: hidden;
+    color: black;
+    border-right: 2px solid black;
+    transition: 1s ease-in-out;
+  }
+  .nama h2:hover::before {
+    width: 39%;
+    filter: drop-shadow(0 0 20px black);
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center; /* Center the icons */
+    margin-bottom: 10px; /* Space below the icons */
+    margin-top: 10px;
+  }
+
+  .social-icons a {
+    font-size: 2.5rem; /* Increase the size of the icons */
+    color: #333; /* Match the text color */
+    text-decoration: none; /* Remove underline */
+    margin: 0 15px; /* Space between icons */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+  }
+
+  .social-icons a:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+  }
+
+  .motto h1 {
+    color: black;
+    margin: -20px;
+    font-size: 1.5rem;
+  
+  }
+
+  .motto h2 {
+    font-size: 12px;
+    font-style: italic;
+    color: #555;
+    margin-top: 40px;
+    white-space: nowrap; /* Mencegah teks memecah baris */
+    overflow: hidden; /* Menyembunyikan teks yang belum terlihat */
+    border-right: 2px solid black; /* Garis kursor */
+    display: inline-block; /* Mencegah geseran teks */
+    animation: typing 5s steps(60, end) 1, blink-caret 0.75s step-end infinite; /* Typing hanya berjalan 1 kali */
+  }
+
+  /* About Section */
+  .about-me {
+    flex-direction: column;
+    padding: 2px;
+    width: 26rem;
+    margin-left: 1.3rem;
+  }
+
+  .about-photo {
+    flex: 1 1 100%; /* Mengatur gambar dan teks agar tampil dalam satu kolom */
+    margin-top: 25px;
+    opacity: 1;
+    transform: none;
+    margin-left: 33px;
+  }
+  .about-photo2 {
+    flex: 1 1 100%; /* Mengatur gambar dan teks agar tampil dalam satu kolom */
+    margin: 0;
+    opacity: 1;
+    transform: none;
+  }
+
+  .about-img {
+    width: 100%; /* Membuat gambar memenuhi lebar kontainer */
+    max-width: 350px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 10px;
+  }
+
+  .about-text {
+    flex: 1;
+    padding: 10px;
+  }
+
+  /* Menyesuaikan ukuran teks di About */
+  .about-text h2 {
+    font-size: 2rem; /* Menyesuaikan ukuran judul */
+  }
+
+  .about-text p {
+    font-size: 1.1rem; /* Menyesuaikan ukuran teks */
+    line-height: 1.6;
+  }
+
+  .info p {
+    font-size: 1.3rem; /* Memperbesar teks informasi */
+  }
+
+  .about-text p strong {
+    font-size: 1.4rem; /* Memperbesar teks bold (nama, email, dsb) */
+  }
+
+  /* Section Education */
+  .education {
+    flex-direction: column;
+    margin-top: 20px;
+    width: 26.2rem;
+    margin-left: 1.3rem;
+  }
+
+  .education-box {
+    height: auto; /* Membuat kotak pendidikan responsif */
+  }
+
+  .education-container {
+    flex-direction: column;
+    padding: 20px 0;
+  }
+
+  .education-item {
+    margin-bottom: 15px; /* Menambah jarak antar item */
+  }
+
+  .education-item img {
+    width: 120px;
+  }
+
+  .education-item img.school-logo {
+    width: 130px; /* Besarkan ukuran logo */
+    height: auto; /* Pertahankan rasio aspek */
+    margin: 15px;
+    opacity: 0; /* Mulai tidak terlihat untuk animasi */
+    transform: translateY(20px); /* Mulai lebih rendah untuk animasi */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Efek animasi */
+    
+  }
+
+  .education-text strong {
+    font-size: 1.2rem; /* Menyesuaikan ukuran font judul pendidikan */
+  }
+
+  .education-text span {
+    font-size: 1rem;
+  }
+
+  /* Section Projects */
+  .container {
+    flex-direction: column;
+    padding: 20px;
+    margin-left: 1.3rem;
+  }
+
+  .panel {
+    height: 60vh;
+    flex: 1 1 100%;
+    margin-bottom: 20px; /* Memberikan jarak antar panel */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .panel h3 {
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  .panel.active {
+    flex: 1;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 1rem;
+    padding: 10px;
+  }
 }
